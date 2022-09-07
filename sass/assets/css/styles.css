@@ -1,0 +1,42 @@
+div#mainContainer {
+  background-color: #333;
+  color: "#000";
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  width: 500px;
+}
+ul.menu > li > a {
+  color: green;
+}
+ul.menu > li > a.active {
+  color: blue;
+}
+ul.menu > li.active {
+  color: blue;
+}
+
+.tooltip {
+  border-bottom: 0;
+}
+
+.btn, .btn-primary {
+  padding: 6px 12px;
+  background-color: lightblue;
+  font-size: 16px;
+  border: solid 1px #999;
+  border-radius: 6px;
+}
+
+.btn-primary {
+  background-color: blue;
+  border-color: darkblue;
+  color: #fff;
+}
+
+/*# sourceMappingURL=styles.css.map */

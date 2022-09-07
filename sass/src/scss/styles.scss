@@ -1,0 +1,59 @@
+@import "variables";
+@import "mixins";
+
+div#mainContainer {
+	background-color: $background-color;
+	color: $primary-color;
+}
+
+h1 {
+	@include no-spacing;
+}
+
+ul {
+	width: 500px;
+
+	&.menu{
+		>li {
+			// float: left;
+
+			>a {
+				color: green;
+				&.active {
+					color: blue;
+				}
+			}
+			&.active {
+				color: blue;
+			}
+		}
+	}
+}
+// ul.menu > li > a
+// ul.menu {
+//  > li {
+// 	> a {
+// 		color: green;
+// 	}
+//  }
+// }
+
+// Interpolacion: en lugar de el valor de la variable es el del selector
+.tooltip {
+	border-#{$position}: 0;
+}
+
+.btn {
+	padding: 6px 12px;
+	background-color: lightblue;
+	font-size: 16px;
+	border: solid 1px #999;
+	border-radius: 6px;
+}
+
+.btn-primary {
+	@extend .btn;
+	background-color: blue;
+	border-color: darkblue;
+	color: #fff;
+}

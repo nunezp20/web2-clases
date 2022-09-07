@@ -1,0 +1,20 @@
+{
+  "name": "sass",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "styles:dev": "sass src/scss:assets/css --watch",
+    "styles": "sass src/scss:assets/css --no-source-map"
+  },
+  "engines": {
+    "node": "16.10.0",
+    "npm": "7.24.0"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.54.5"
+  }
+}
