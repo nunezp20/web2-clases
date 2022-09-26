@@ -11,6 +11,7 @@ export class NoticiasComponent implements OnInit {
   noticias: any = []
   cargando: boolean = false
   search: string = ''
+  lastSearch: string = ''
 
   constructor(private servicioDeNoticias: NoticiaService) {}
 
@@ -22,13 +23,14 @@ export class NoticiasComponent implements OnInit {
     this.cargando = true;
     this.servicioDeNoticias.getNoticias(this.search).subscribe({
       next: (response) => {
-      this.noticias = response.articles;
-      this.cargando = false;
-      this.search = '';
-    },
-    error: (err) => {
-      console.log('Error: ', err);
-    }
+        this.lastSearch = this.search;
+        this.noticias = response.articles;
+        this.cargando = false;
+        this.search = '';
+      },
+      error: (err) => {
+        console.log('Error: ', err);
+      }
     });
   }
 
