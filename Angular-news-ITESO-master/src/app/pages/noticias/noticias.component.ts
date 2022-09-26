@@ -10,15 +10,33 @@ export class NoticiasComponent implements OnInit {
 
   noticias: any = []
   cargando: boolean = false
+  search: string = ''
 
   constructor(private servicioDeNoticias: NoticiaService) {}
 
   ngOnInit(): void {
-    this.cargando = true
-    this.servicioDeNoticias.getNoticias().subscribe(res => {
-      this.noticias = res.articles
-      this.cargando = false
-    })
+    
+  }
+
+  buscar(): void {
+    this.cargando = true;
+    this.servicioDeNoticias.getNoticias(this.search).subscribe({
+      next: (response) => {
+      this.noticias = response.articles;
+      this.cargando = false;
+      this.search = '';
+    },
+    error: (err) => {
+      console.log('Error: ', err);
+    }
+    });
+  }
+
+  setSearch(e: any){
+    this.search = e.target.value;
+    if(e.key == 'Enter'){
+      this.buscar()
+    }
   }
 
 }

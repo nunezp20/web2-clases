@@ -1,4 +1,8 @@
 <h2>Listado de Noticias</h2>
+
+<input type="text" placeholder="Buscar..." [value]="search" (keyup)="setSearch($event)">
+<button (click)="buscar()">Buscar</button>
+
 <p *ngIf="cargando">Cargando...</p>
 <ul>
   <li *ngFor="let elemento of noticias">
