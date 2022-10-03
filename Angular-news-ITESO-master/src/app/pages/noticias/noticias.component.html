@@ -1,4 +1,3 @@
-<h2>Listado de Noticias</h2>
 <form (submit)="buscar()">
   <input type="text" name="Texto" placeholder="Buscar..." [(ngModel)]="search">
   <button [disabled] = "!search">Buscar</button>
@@ -6,8 +5,17 @@
 <p *ngIf="cargando">Cargando...</p>
 
 <h2>Resultados de {{lastSearch | myUpperCase}} </h2>
-<ul>
-  <li *ngFor="let elemento of noticias">
-    <a href="{{elemento.url}}" target="_new">{{elemento.title}}</a>
-  </li>
-</ul>
+<div class="panel">
+  <div>
+    <ul>
+      <li [ngClass]="{'active': current == elemento}" *ngFor="let elemento of noticias">
+        <a (click)="selectNoticia(elemento)">{{elemento.title}}</a>
+      </li>
+    </ul>
+  </div>
+  <div class="derecha">
+    <app-noticia-details [item]="current" (onClear)="clearCurrent"></app-noticia-details>
+  </div>
+</div>
+
+

@@ -1,0 +1,33 @@
+a{
+    cursor: pointer;
+}
+
+.panel{
+    > div{
+        float:left;
+        width: 50%;
+        box-sizing: border-box;
+
+        &:first-child{
+            border-right: solid 1px #999;
+            box-sizing: border-box;
+        }
+    }
+    
+    
+    &::after{
+        content: "";
+        display:table;
+        clear:both;
+    }
+    
+}
+
+.derecha{
+    text-align: center;
+    padding-left: 15px;
+}
+
+.active{
+    background-color: cornflowerblue;
+}

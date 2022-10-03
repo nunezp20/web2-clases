@@ -12,6 +12,7 @@ export class NoticiasComponent implements OnInit {
   cargando: boolean = false
   search: string = ''
   lastSearch: string = ''
+  current: any ={};
 
   constructor(private servicioDeNoticias: NoticiaService) {}
 
@@ -32,6 +33,15 @@ export class NoticiasComponent implements OnInit {
         console.log('Error: ', err);
       }
     });
+  }
+
+  selectNoticia(noticia: any){
+    console.log('Seleccionaste la noticia:', noticia)
+    this.current = noticia;
+  }
+
+  clearCurrent(){
+    this.current = {};
   }
 
   setSearch(e: any){
